@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="jquery.min.js" charset="utf-8"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>by meerbi.design</title>
+<style id="applicationStylesheet" type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+	display:  none;
+	user-select: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+* {
+	font-family: Poppins;
+}
+
+@-webkit-keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+@keyframes flip-in-hor-bottom {
+  0% {
+    -webkit-transform: rotateX(80deg);
+            transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
+    opacity: 1;
+  }
+}
+	.mediaViewInfo {
+		--web-view-name: Canvas;
+		--web-view-id: Canvas;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: Canvas;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Canvas {
+		position: absolute;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(0,0,0,0);
+		overflow: hidden;
+		--web-view-name: Canvas;
+		--web-view-id: Canvas;
+		--web-scale-to-fit: true;
+		--web-scale-to-fit-type: width;
+		--web-enable-scale-up: true;
+		--web-scale-on-resize: true;
+		--web-center-vertically: true;
+		--web-enable-deep-linking: true;
+	}
+	#bg {
+		position: absolute;
+		width: 1920px;
+		height: 1080px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#einreise {
+		position: absolute;
+		width: 539px;
+		height: 633px;
+		left: 691px;
+		top: 224px;
+		overflow: visible;
+	}
+	#Gruppe_22 {
+		position: absolute;
+		width: 539px;
+		height: 633px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_20 {
+		fill: rgba(13,13,13,1);
+	}
+	.loadinng_20 {
+		position: absolute;
+		overflow: visible;
+		width: 539px;
+		height: 633px;
+		left: 0px;
+		top: 0px;
+	}
+	#Gruppe_21 {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		left: 139px;
+		top: 146px;
+		overflow: visible;
+	}
+	#btn {
+		position: absolute;
+		width: 500px;
+		height: 500px;
+		left: 0px;
+		top: 370px;
+		overflow: visible;
+	}
+	#loadinng_18 {
+		fill: rgba(248,45,75,1);
+	}
+	.loadinng_18 {
+		position: absolute;
+		overflow: visible;
+		width: 182px;
+		height: 38px;
+		left: 0px;
+		top: 0px;
+	}
+	#ERSTELLEN {
+		left: -100.365px;
+		top: 145px;
+		position: absolute;
+		overflow: visible;
+		width: 500px;
+                height: 200px;
+		white-space: nowrap;
+		line-height: 17.499996185302734px;
+		margin-top: -1.4583330154418945px;
+		text-align: center;
+		font-family: Metropolis-Bold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14.583330154418945px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.5px;
+                opacity: 0%;
+	}
+	#Gruppe_23 {
+		position: absolute;
+		width: 261px;
+		height: 170px;
+		left: 0px;
+		top: 54px;
+		overflow: visible;
+	}
+	#Gruppe_17 {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_4 {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_4_r {
+		fill: rgba(21,21,21,1);
+	}
+	.loadinng_4_r {
+		position: absolute;
+		overflow: visible;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+	}
+	#Clip {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+                display: none;
+	}
+	#Eingabefeld {
+		left: -9px;
+		top: -114px;
+		position: absolute;
+		overflow: visible;
+		width: 79px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_17_u {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 45px;
+		overflow: visible;
+	}
+	#loadinng_4_v {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_4_w {
+		fill: rgba(21,21,21,1);
+	}
+	.loadinng_4_w {
+		position: absolute;
+		overflow: visible;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+	}
+	#Clip_x {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+                display: none;
+	}
+	#Eingabefeld_y {
+		left: -9px;
+		top: -53px;
+		position: absolute;
+		overflow: visible;
+		width: 79px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_17_z {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 89px;
+		overflow: visible;
+	}
+	#loadinng_4_ {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_4_ba {
+		fill: rgba(21,21,21,1);
+	}
+	.loadinng_4_ba {
+		position: absolute;
+		overflow: visible;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+	}
+	#Clip_ {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+                display: none;
+	}
+	#Eingabefeld_ {
+		left: -9px;
+		top: 10px;
+		position: absolute;
+		overflow: visible;
+		width: 79px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_17_ {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 135px;
+		overflow: visible;
+	}
+	#loadinng_4_bb {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#loadinng_4_bc {
+		fill: rgba(21,21,21,1);
+	}
+	.loadinng_4_bc {
+		position: absolute;
+		overflow: visible;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+	}
+	#Clip_ba {
+		position: absolute;
+		width: 261px;
+		height: 35px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+                display: none;
+	}
+	#Eingabefeld_ba {
+		left: -10px;
+		top: 70px;
+		position: absolute;
+		overflow: visible;
+		width: 79px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_19 {
+		position: absolute;
+		width: 167px;
+		height: 42px;
+		left: 43px;
+		top: 246px;
+		overflow: visible;
+	}
+	#Geschlecht {
+		left: 45px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 75px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_20 {
+		position: absolute;
+		width: 167px;
+		height: 17px;
+		left: 0px;
+		top: 165px;
+		overflow: visible;
+	}
+	#Gruppe_18 {
+		position: absolute;
+		width: 76px;
+		height: 17px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Ellipse_1 {
+		fill: rgba(248,45,75,1);
+	}
+	.Ellipse_1 {
+		position: absolute;
+		overflow: visible;
+		width: 8px;
+		height: 8px;
+		left: 0px;
+		top: 5px;
+	}
+	#Mnnlich {
+		left: 15px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 62px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#Gruppe_18_bf {
+		position: absolute;
+		width: 72px;
+		height: 17px;
+		left: 95px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Ellipse_1_bg {
+		fill: rgba(61,61,61,1);
+	}
+	.Ellipse_1_bg {
+		position: absolute;
+		overflow: visible;
+		width: 8px;
+		height: 8px;
+		left: 0px;
+		top: 5px;
+	}
+	#Weiblich {
+		left: 15px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 58px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -6.75px;
+		text-align: left;
+		font-family: Poppins-SemiBold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12.5px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#CHARAKTERERSTELLUNG {
+		left: 24px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 203px;
+		white-space: nowrap;
+		line-height: 26px;
+		margin-top: -4.666665077209473px;
+		text-align: left;
+		font-family: Poppins-Medium;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16.666669845581055px;
+		color: rgba(69, 37, 176,1);
+		letter-spacing: 0.2px;
+	}
+	#CHARAKTERERSTELLUNG_bj {
+		opacity: 0.322;
+		position: absolute;
+		width: 205px;
+		height: 13px;
+		left: 25px;
+		top: 19px;
+		overflow: visible;
+                display: none;
+	}
+	#Logo {
+		position: absolute;
+		width: 104.15px;
+		height: 75.797px;
+		left: 217.425px;
+		top: 42.911px;
+		overflow: visible;
+                display: none;
+	}
+	input[type=text] {
+    background: transparent;
+    outline: none;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: #ababab;
+    text-align: left;
+    width: 150px;
+}
+.btn {
+    background-color: #4525b0;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #dedbde;
+    font-family: Poppins;
+    font-size: 13px;
+    padding: 7px 60px;
+    text-decoration: none;
+    margin-left: -45px;
+    margin-top: -10px;
+    height: 70px;
+    width: 300px;
+}
+.btn:hover {
+    background-color: #131313;
+}
+
+
+
+
+</style>
+<script id="applicationScript" type="text/javascript" src="rescale.js"></script>
+</head>
+<body>
+
+
+<div id="Gruppe_22">
+			</div>
+
+
+<div id="Canvas">
+	<img id="bg" src="https://cdn.discordapp.com/attachments/993460669271773237/1044384220220510288/bgneu.png">
+	<form id="register" action="index.html" class="login-form">
+		<div id="einreise">
+			<div id="Gruppe_22">
+			</div>
+			<div id="Gruppe_21">
+				<div id="btn">
+					<div id="ERSTELLEN">
+						<input id="submit" type="submit" class="btn" value= "ERSTELLEN" onclick="showHelp()">
+					</div>
+				</div>
+				<div id="Gruppe_23">
+					<div id="Gruppe_17">
+						<div id="loadinng_4">
+							<img id="Clip" src="https://cdn.discordapp.com/attachments/906675307891798036/921510316452487268/Clip.png">
+								
+							</svg>
+						</div>
+						<div id="Eingabefeld">
+							<input id="firstname" type="text" placeholder="Max">
+						</div>
+					</div>
+					<div id="Gruppe_17_u">
+						<div id="loadinng_4_v">
+							<img id="Clip_x" src="https://cdn.discordapp.com/attachments/906675307891798036/921510316452487268/Clip.png">
+								
+							</svg>
+						</div>
+						<div id="Eingabefeld_y">
+							<input id="lastname" type="text" placeholder="Mustermann">
+						</div>
+					</div>
+					<div id="Gruppe_17_z">
+						<div id="loadinng_4_">
+							<img id="Clip_" src="https://cdn.discordapp.com/attachments/906675307891798036/921510316452487268/Clip.png">
+								
+							</svg>
+						</div>
+						<div id="Eingabefeld_">
+							<input id="height" type="text" placeholder="180">
+						</div>
+					</div>
+					<div id="Gruppe_17_">
+						<div id="loadinng_4_bb">
+							<img id="Clip_ba" src="https://cdn.discordapp.com/attachments/906675307891798036/921510316452487268/Clip.png">
+								
+							
+						</div>
+						<div id="Eingabefeld_ba">
+							<input id="dateofbirth" type="text" placeholder="01.01.2000">
+						</div>
+					</div>
+				</div>
+				<div id="Gruppe_19">
+					<div id="Geschlecht">
+						
+					</div>
+					<div id="Gruppe_20">
+						<label for="rdo-1" class="btn-radio">
+	              <input type="radio" name="sex" id="rdo-1" value="f">
+	              <span style="color: white; font-size: 12px;">Weiblich</span>
+	            </label>
+	            <label for="rdo-2" class="btn-radio">
+	              <input type="radio" name="sex" id="rdo-2" value="m" checked>
+	              <span style="color: white; font-size: 12px;">Männlich</span></span>
+	            </label>
+					</div>
+				</div>
+				<div id="CHARAKTERERSTELLUNG">
+					
+				</div>
+				<img id="CHARAKTERERSTELLUNG_bj" src="https://cdn.discordapp.com/attachments/788240573382787114/871991039936827452/CHARAKTERERSTELLUNG_bj.png">
+					
+			</div>
+			<img id="Logo" src="">
+				
+		</div>
+	</form>
+</div>
+<script src="script.js" type="text/javascript"></script>
+</body>
+</html>
